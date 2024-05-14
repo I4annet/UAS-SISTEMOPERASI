@@ -6,6 +6,6 @@
 |   Kelas    | TI-1B      |   
 |  Dosen Pengampu | Mohammad Faried Rahmat, S.ST., M.Tr.T |
 
-# SISTEM OPERAS 
+# SISTEM OPERASI 
 ### COMING-SOON
 
