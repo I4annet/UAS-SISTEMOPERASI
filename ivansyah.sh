@@ -9,28 +9,42 @@ show_menu() {
     echo "| 1. Cek isi file       |"
     echo "| 2. Tambahkan file     |"
     echo "| 3. Hapus file         |"
-    echo "| 4. Keluar             |"
+    echo "| 4. Edit file          |"
+    echo "| 5. Kalender           |"
+    echo "| 6. Keluar             |"
     echo "========================="
 }
-
     show_menu
 while true; do      
         read -p "Masukkan pilihan: " pilihan
 
     case $pilihan in
     1) read -p "Masukkan nama file : " file_to_read
-        if [-f "$file_to_read" ]; then
+        if [ -f "$file_to_read" ]; then
             cat $file_to_read
         else    
             echo "file tidak ditemukan atau bukan merupakan file"
         fi
         ;;
-    2) echo "file baru berhasil dibuat dengan"
-    ;;
+    2) read -p "Masukkan nama file baru beserta ekstensinya : " new_file
+        touch $new_file
+        echo "file baru berhasil dibuat dengan nama $new_file"
+        ;;
     3) read -p "Masukkan nama file yang ingin dihapus: " path
         rm -r $path
+        echo "file $path berhasil dihapus"
         ;;
-    4) echo "Sampai jumpa"
+    4) read -p "Masukkan nama file yang ingin diedit: " file_to_edit
+        if [ -f "$file_to_edit" ]; then 
+            nano "$file_to_edit"  
+        else    
+            echo "Hmm.., file yang kamu cari tidak ada"
+        fi
+        ;;
+    5) echo "Kalender saat ini :"
+        cal
+        ;;
+    6) echo "Sampai jumpa"
      exit 0
      ;;
 
