@@ -7,14 +7,14 @@
 |  Dosen Pengampu | Mohammad Faried Rahmat, S.ST., M.Tr.T |
 
 # SISTEM OPERASI 
-No  |   Fitur      |    Detail          |   
+| No  |   Fitur      |    Detail          |   
 ------------ | ------------- |:-------------:| 
-1. |   Cek isi file      |     | 
-2. |   Tambahkan file      |          |   
-3. |   Hapus file    |        |   
-4. |   Edit fille |     |
-5. |   kalender |       |
-6. |    Keluar  |       |
+| 1. |   Cek isi file      |     | 
+| 2. |   Tambahkan file      |          |   
+| 3. |   Hapus file    |        |   
+| 4. |   Edit fille |     |
+| 5. |   kalender |       |
+| 6. |    Keluar  |       |
 
 
 
