@@ -11,7 +11,9 @@ show_menu() {
     echo "| 3. Hapus file         |"
     echo "| 4. Edit file          |"
     echo "| 5. Kalender           |"
-    echo "| 6. Keluar             |"
+    echo "| 6. Tambahkan folder   |"
+    echo "| 7. Hapus folder       |"
+    echo "| 8. Keluar             |"
     echo "========================="
 }
     show_menu
@@ -44,7 +46,20 @@ while true; do
     5) echo "Kalender saat ini :"
         cal
         ;;
-    6) echo "Sampai jumpa"
+    6) read -p "Masukkan nama folder yang ingin dibuat: " folder_name
+        mkdir "$folder_name"
+        echo "folder $folder_name berhasil dibuat"
+        ;;
+
+    7) read -p "Masukkan nama folder yang ingin dihapus: " folder_to_delete
+        if [ -d "$folder_to_delete" ]; then   
+            rmdir "$folder_to_delete"
+            echo "Folder $folder_to_delete berhasil dihapus."
+        else
+            echo "Hm, folder tidak ditemukan atau bukan merupakan folder."
+        fi
+        ;;
+    8) echo "Sampai jumpa"
      exit 0
      ;;
 

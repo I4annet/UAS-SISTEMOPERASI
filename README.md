@@ -14,7 +14,9 @@
 | 3. |   Hapus file    |        |   
 | 4. |   Edit fille |     |
 | 5. |   kalender |       |
-| 6. |    Keluar  |       |
+| 6. |  Tambahkan folder |      |
+| 7. |  Hapus folder |      |
+| 8. |    Keluar  |       |
 
 
 
