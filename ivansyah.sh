@@ -1,4 +1,8 @@
 #!/bin/bash
+# Nama : Ivansyah Eka Oktaviadi Santoso
+# NIM : 2341720126
+# Kelas : 1B
+# Prodi : D-IV Teknik Informatika
 
 show_menu() {
     echo "========================="
