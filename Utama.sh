@@ -31,6 +31,7 @@ read -p "Masukkan nama file : " file_to_read
         else    
             echo "file tidak ditemukan atau bukan merupakan file"
         fi
+        
 }
 tambahkan_file() {
     read -p "Masukkan nama file baru beserta ekstensinya : " new_file
@@ -52,7 +53,7 @@ edit_file() {
 }
 pindah_file() {
     read -p "Masukkan nama file yang ingin dipindahkan: " source_path
-    read -p "Masukkan tujuan folder:" dest_folder
+    read -p "Masukkan tujuan folder: " dest_folder
 
     if [ ! -d "$dest_folder" ]; then
         echo "Tujuan yang Anda masukkan bukan direktori yang valid."
@@ -92,10 +93,9 @@ hapus_folder() {
         fi
 }
 zip_file() {
-    echo "Masukkan nama file beserta ekstensinya yang ingin di-zip: "
-    read file_name
-    echo "Masukkan nama file zip yang diinginkan: "
-    read zip_name
+    read -p "Masukkan nama file beserta ekstensinya yang ingin di-zip: " file_name
+    read -p "Masukkan nama file zip yang diinginkan: " zip_name
+
     zip "$zip_name" "$file_name"
 
     echo "Apakah ingin memberi password pada file zip? (y/n):"
@@ -112,25 +112,19 @@ zip_file() {
     fi
 }
 
-
 unzip_file() {
-    echo "Masukkan nama file zip yang ingin di-unzip: "
-        read zip_name
-        echo "Masukkan tujuan folder untuk di ekstraksi: "
-        read dest_folder
-        unzip "$zip_name" -d "dest_folder"
-        if [ -d "$dest_folder" ]; then
-        unzip "$zip_name.zip" -d "$dest_folder/$zip_name"
-        if [ $? -ne 0 ]; then
-            read -s -p "Mungkin file zip memerlukan password. Masukkan password untuk ekstraksi: " zip_password
-            echo
-            unzip -P "$zip_password" "$zip_name.zip" -d "$dest_folder/$zip_name"
-        fi
-        echo "File $zip_name.zip telah diunzip ke folder $dest_folder/$zip_name"
-    else
-        echo "Folder tujuan tidak valid."
+    echo "Masukkan nama file zip tanpa eksistensinya yang ingin di-unzip: "
+    read zip_name
+    mkdir -p "$zip_name"  # Membuat folder dengan nama file zip
+    unzip "$zip_name.zip" -d "$zip_name"
+    if [ $? -ne 0 ]; then
+        read -s -p "Mungkin file zip memerlukan password. Masukkan password untuk ekstraksi: " zip_password
+        echo
+        unzip -P "$zip_password" "$zip_name.zip" -d "$zip_name"
     fi
+    echo "File $zip_name.zip telah diunzip ke folder $zip_name"
 }
+
 keluar() {
     echo "Sampai jumpa"
     exit 0
@@ -146,7 +140,7 @@ while true; do
     4) edit_file ;;
     5) pindah_file;;
     6) tampil_kalender;;
-    7) tambahkan_folder ;;
+    7) tambahkan_folder;;
     8) hapus_folder;;
     9) zip_file;;
     10) unzip_file;;
