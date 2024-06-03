@@ -7,7 +7,7 @@
 show_menu() {
     echo "========================="
     echo "|                       |"
-    echo "|     Selamat Datang    |"
+    echo "|     SELAMAT DATANG    |"
     echo "|                       |"
     echo "========================="
     echo "| 1. Cek isi file       |"
@@ -52,7 +52,7 @@ edit_file() {
         fi
 }
 pindah_file() {
-    read -p "Masukkan nama file yang ingin dipindahkan: " source_path
+    read -p "Masukkan nama file / folder yang ingin dipindahkan: " source_path
     read -p "Masukkan tujuan folder: " dest_folder
 
     if [ ! -d "$dest_folder" ]; then
